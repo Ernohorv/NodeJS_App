@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import defaultRouter from './api/defaultRouter';
+import winston from 'winston';
+const logger = require('./logger');
 
 require('dotenv').config();
 
@@ -12,9 +14,5 @@ app.use(cors());
 app.use('/', defaultRouter);
 
 app.listen(port, () => {
-    console.log(`Server started on port: ${port}`);
+    logger.info(`Server started on port: ${port}`)
 });
-
-app.get('/', (req, res) => {
-    res.status('200').json({'text': "1"});
-})
