@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import defaultRouter from './api/defaultRouter';
-import winston from 'winston';
+import simpleRouter from './api/simpleRouter';
 const logger = require('./logger');
 
 require('dotenv').config();
@@ -12,7 +12,10 @@ const app = express();
 app.use(cors());
 
 app.use('/', defaultRouter);
+app.use('/user', simpleRouter);
 
-app.listen(port, () => {
+var server = app.listen(port, () => {
     logger.info(`Server started on port: ${port}`)
 });
+
+module.exports = server;
