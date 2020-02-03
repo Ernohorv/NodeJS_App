@@ -5,8 +5,8 @@ import simpleRouter from './api/simpleRouter';
 const logger = require('./logger');
 const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
-
 require('dotenv').config();
+
 const port = process.env.PORT;
 const app = express();
 

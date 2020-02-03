@@ -4,7 +4,7 @@ const defaultRouter = Router();
 
 defaultRouter.get('/', (req, res) => {
     logger.info('Default route');
-    return res.status('200').json({'message': 'Eeee'});
+    return res.status('200').json({'message': 'Default page'});
 })
 
 export default defaultRouter;
